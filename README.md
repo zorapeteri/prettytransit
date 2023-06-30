@@ -19,7 +19,8 @@ Each city has a list of transport types defined, with an intentional order. When
 The URL can be manipulated to include any number of transport types or lines.
 For example: `/berlin/U1,S1,tram`
 
-<small>_Exception:_ if there are at least 2 transport types available for a city, displaying all bus lines at once will be forbidden. This is because usually in cities that have extended public transit systems, there'll be a very large number of bus lines in contrast to other travel modes. For example Berlin has 200 bus lines compared with 22 tram lines coming in second.</small>
+_**Exception:** if there are at least 2 transport types available for a city, displaying all bus lines at once will be forbidden. This is because usually in cities that have extended public transit systems, there'll be a very large number of bus lines in contrast to other travel modes. For example Berlin has 200 bus lines compared with 22 tram lines coming in second._
+
 
 When transit lines are displayed in the control panel under "showing", they can be hovered over or clicked to highlight the track of the line on the map.
 
@@ -27,7 +28,7 @@ For the movement of vehicles, [PIXI.Ticker](https://pixijs.download/dev/docs/PIX
 
 At every single stop, irregardless of vehicle type, a 30 second [dwell time](<https://en.wikipedia.org/wiki/Dwell_time_(transportation)>) is assumed. I timed this on multiple types of Berlin transit, at different times of day and it seems a good average. This causes the flow of vehicles to not be continous, but rather realistic.
 
-<small>_Fun fact_: Datasets that include bus and tram lines that have very frequent stops tend to (understandably) make large generalizations for the travel times between stops, which can make it look like the movement of vehicles is borderline coreographed. If you go to [berlin/tram](https://prettytransit.com/berlin/tram) and put the speed to 120x and start playing [Pump Up The Jam](https://open.spotify.com/track/21qnJAMtzC6S5SESuqQLEK?si=31bc47663e1e41b2) at the right time, you can look at the trams vibing.</small>
+_**Fun fact**: Datasets that include bus and tram lines that have very frequent stops tend to (understandably) make large generalizations for the travel times between stops, which can make it look like the movement of vehicles is borderline coreographed. If you go to [berlin/tram](https://prettytransit.com/berlin/tram) and put the speed to 120x and start playing [Pump Up The Jam](https://open.spotify.com/track/21qnJAMtzC6S5SESuqQLEK?si=31bc47663e1e41b2) at the right time, you can look at the trams vibing._
 
 ### credits and attributions
 
