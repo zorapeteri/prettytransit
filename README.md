@@ -2,7 +2,8 @@
 
 A timelapse public transit visualization app built with Pixi and Vue.
 
-<img alt="a screenshot of prettytransit" src="https://github.com/zorapeteri/prettytransit/assets/52820291/8c26b7ef-353c-4ba3-b23d-bbf6058cd316">
+<img alt="image" src="https://github.com/zorapeteri/prettytransit/assets/52820291/33a5ca6a-78c7-4aed-9c18-f78216fda795">
+
 
 
 ## context
