@@ -300,7 +300,9 @@ const onLineNameMouseClick = (e: MouseEvent) => {
               }"
               >{{ lineName.split(':')[0] }}</span
             >
-            <span class="longName">{{ line.origin }} - {{ line.destination }}</span>
+            <span class="longName" v-if="line.origin && line.destination"
+              >{{ line.origin }} - {{ line.destination }}</span
+            >
           </label>
         </fieldset>
       </div>

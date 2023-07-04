@@ -4,6 +4,7 @@ import cities from '@/constants/cities'
 import CitySvg from './CitySvg.vue'
 import { cityNames } from '@/constants/cityNames'
 import get, { endpoint } from '@/helpers/get'
+import { cityCountries } from '@/constants/cityCountries'
 
 const transportTypes = ref<Record<string, string[]> | null>(null)
 
@@ -27,7 +28,10 @@ onMounted(async () => {
     </header>
     <main>
       <a v-for="city in cities" :key="city" button :href="'/' + city">
-        <strong>{{ cityNames[city] }}</strong>
+        <div>
+          <strong>{{ cityNames[city] }}</strong
+          ><img :src="`/emoji/countries/${cityCountries[city]}.png`" :alt="cityCountries[city]" />
+        </div>
         <CitySvg :city="city" />
         <ul v-if="transportTypes">
           <li v-for="type in transportTypes[city]" :key="type">
@@ -84,10 +88,21 @@ onMounted(async () => {
       color: inherit;
       text-decoration: none;
 
-      strong {
-        font-size: 1.1rem;
-        text-align: start;
-        font-weight: 500;
+      & > div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        img {
+          height: 1rem;
+          opacity: 0.9;
+        }
+
+        strong {
+          font-size: 1.1rem;
+          text-align: start;
+          font-weight: 500;
+        }
       }
 
       svg {
@@ -100,8 +115,17 @@ onMounted(async () => {
         &.vienna,
         &.szombathely,
         &.brighton,
-        &.london {
+        &.london,
+        &.dublin {
           transform: scale(0.9) translateX(15px);
+        }
+
+        &.zalaegerszeg,
+        &.sopron,
+        &.siofok,
+        &.bratislava,
+        &.belgrade {
+          transform: scale(0.9) translateX(15px) translateY(15px);
         }
 
         path {
@@ -138,6 +162,11 @@ onMounted(async () => {
         gap: 0.5rem;
         margin: 0;
         opacity: 0.9;
+
+        li {
+          display: flex;
+          align-items: center;
+        }
 
         img {
           height: 1rem;

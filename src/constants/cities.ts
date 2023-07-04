@@ -1,9 +1,15 @@
 export default [
   'berlin',
-  'potsdam',
+  // 'london',
   'budapest',
-  'szombathely',
   'vienna',
-  'london',
-  'brighton'
+  'belgrade',
+  'dublin',
+  'bratislava',
+  'brighton',
+  'potsdam',
+  'szombathely',
+  'sopron',
+  'zalaegerszeg',
+  'siofok'
 ] as const
