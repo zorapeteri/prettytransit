@@ -14,7 +14,7 @@ i like trains
 
 ## how it works
 
-Each city has a list of transport types defined, with an intentional order. When you open a city, the default transport type will be displayed, e.g. `/london` will become `/london/underground`.
+Each city has a list of transport types defined, with an intentional order. When you open a city, the default transport type will be displayed, e.g. `/budapest` will become `/budapest/metro`.
 
 The URL can be manipulated to include any number of transport types or lines.
 For example: `/berlin/U1,S1,tram`
