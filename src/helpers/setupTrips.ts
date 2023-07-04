@@ -7,6 +7,7 @@ import { getTrackDotColor } from './getTrackDotColor'
 
 const dwellTime = 30_000
 const hourInMilliseconds = 3_600_000
+const dotSizeInPixels = 30
 
 function log(time: number, track: Track, status: TickerStatus, stopIndex?: number) {
   let action
@@ -79,6 +80,7 @@ export function setupTripsForTimeFrame(
       return { ...track, departures }
     })
     .filter((track) => track.departures.length)
+  const dotOffset = Math.round((dotSizeInPixels * window.dotScale) / 2)
   tracksWithDepartures.forEach((track) => {
     const { timeline } = track
     const container = window.lineContainers[track.route.name]
@@ -93,8 +95,8 @@ export function setupTripsForTimeFrame(
 
       const drawLine = () => {
         const point = pointAlong(track.id, stopIndex, rate)
-        dot.x = point[0] - 3
-        dot.y = point[1] - 3
+        dot.x = point[0] - dotOffset
+        dot.y = point[1] - dotOffset
       }
 
       const nextStop = () => {
@@ -125,9 +127,9 @@ export function setupTripsForTimeFrame(
             nextStop()
             const point = pointAlong(track.id, stopIndex, rate)
             dot = new PIXI.Sprite(getTextureForColor(getTrackDotColor(track), 'circle'))
-            dot.x = point[0] - 3
-            dot.y = point[1] - 3
-            dot.scale.set(0.2, 0.2)
+            dot.x = point[0] - dotOffset
+            dot.y = point[1] - dotOffset
+            dot.scale.set(window.dotScale)
             container.addChild(dot)
           } else {
             return
@@ -262,6 +264,7 @@ function getOngoingTrips(tracks: Track[], currentTime: number): TrackWithOngoing
 
 export function setupOngoingTrips(pixi: PixiApp, tracks: Track[], currentTime: number) {
   const tracksWithOngoingTrips = getOngoingTrips(tracks, currentTime)
+  const dotOffset = Math.round((dotSizeInPixels * window.dotScale) / 2)
   for (const track of tracksWithOngoingTrips) {
     const { timeline } = track
     const container = window.lineContainers[track.route.name]
@@ -273,9 +276,9 @@ export function setupOngoingTrips(pixi: PixiApp, tracks: Track[], currentTime: n
       let rate = 0
       const point = pointAlong(track.id, stopIndex, rate)
       const dot = new PIXI.Sprite(getTextureForColor(getTrackDotColor(track), 'circle'))
-      dot.x = point[0] - 3
-      dot.y = point[1] - 3
-      dot.scale.set(0.2, 0.2)
+      dot.x = point[0] - dotOffset
+      dot.y = point[1] - dotOffset
+      dot.scale.set(window.dotScale)
       container.addChild(dot)
 
       const fin = () => {
@@ -288,8 +291,8 @@ export function setupOngoingTrips(pixi: PixiApp, tracks: Track[], currentTime: n
 
       const drawLine = () => {
         const point = pointAlong(track.id, stopIndex, rate)
-        dot.x = point[0] - 3
-        dot.y = point[1] - 3
+        dot.x = point[0] - dotOffset
+        dot.y = point[1] - dotOffset
       }
 
       const nextStop = () => {

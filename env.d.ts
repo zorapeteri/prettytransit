@@ -7,6 +7,7 @@ declare global {
   interface Window {
     trackProjections: Record<string, [number, number][]>
     projectionScale: number
+    dotScale: number
     projection: d3.GeoProjection
     trackLengths: Record<string, number>
     trackStopPositions: Record<
