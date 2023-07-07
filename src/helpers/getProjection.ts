@@ -18,7 +18,7 @@ async function getProjection(city: string): Promise<{
     .fitSize([Math.round(width * 0.9), Math.round(height * 0.9)], cityFeatureCollection)
   window.projection = projection
   window.projectionScale = projection.scale()
-  window.dotScale = window.projectionScale / 372900
+  window.dotScale = Math.min(window.projectionScale / 372900, 0.2)
   return { projection, cityFeatureCollection }
 }
 
