@@ -29,11 +29,13 @@ const getActiveLinesDisplay = (_activeLines: string[]) => {
   if (_activeLines.length === 1 && props.transportTypes[_activeLines[0]]) {
     const type = _activeLines[0]
     return {
-      [type]: Object.entries(linesGroupedByType[type]).map(([name, { colors }]) => ({
-        name,
-        type,
-        colors
-      }))
+      [type]: Object.entries(linesGroupedByType[type])
+        .map(([name, { colors }]) => ({
+          name,
+          type,
+          colors
+        }))
+        .sort((a, b) => a.name.length - b.name.length)
     }
   }
 
