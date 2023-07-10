@@ -1,8 +1,11 @@
 import type { TransportTypes } from '@/types'
+import _ from 'lodash'
 
 export function onlyBus(transportTypes: TransportTypes | readonly string[]) {
-  if (Array.isArray(transportTypes)) {
-    return transportTypes.length === 1 && transportTypes[0] === 'bus'
-  }
-  return Object.keys(transportTypes).length === 1 && (transportTypes as TransportTypes).bus
+  return (
+    _.isEqual(transportTypes, ['bus']) ||
+    _.isEqual(transportTypes, ['bus', 'longdistancebus']) ||
+    _.isEqual(Object.keys(transportTypes), ['bus']) ||
+    _.isEqual(Object.keys(transportTypes), ['bus', 'longdistancebus'])
+  )
 }
