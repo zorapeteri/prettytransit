@@ -41,8 +41,9 @@ onMounted(async () => {
       </a>
     </main>
     <footer>
-      <span>made with ♡ by <a href="https://github.com/zorapeteri">zora</a></span
-      ><span> | </span><a href="https://github.com/zorapeteri/prettytransit">github</a>
+      <span>made with ♡ by <a href="https://zora.rocks" target="_blank">zora</a></span
+      ><span> | </span
+      ><a href="https://github.com/zorapeteri/prettytransit" target="_blank">github</a>
     </footer>
   </div>
 </template>
@@ -122,6 +123,8 @@ onMounted(async () => {
 
         &.zalaegerszeg,
         &.sopron,
+        &.gyor,
+        &.keszthely,
         &.siofok,
         &.bratislava,
         &.belgrade {
