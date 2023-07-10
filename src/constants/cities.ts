@@ -8,8 +8,10 @@ export default [
   'bratislava',
   'brighton',
   'potsdam',
+  'gyor',
   'szombathely',
   'sopron',
   'zalaegerszeg',
-  'siofok'
+  'siofok',
+  'keszthely'
 ] as const

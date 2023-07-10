@@ -8,6 +8,8 @@ export const cityNames: Record<(typeof cities)[number], string> = {
   zalaegerszeg: 'Zalaegerszeg',
   siofok: 'Siófok',
   sopron: 'Sopron',
+  gyor: 'Győr',
+  keszthely: 'Keszthely',
   vienna: 'Vienna',
   // london: 'London',
   brighton: 'Brighton and Hove',

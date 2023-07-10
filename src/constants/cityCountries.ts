@@ -9,6 +9,8 @@ export const cityCountries: Record<(typeof cities)[number], (typeof countries)[n
   zalaegerszeg: 'hungary',
   siofok: 'hungary',
   sopron: 'hungary',
+  gyor: 'hungary',
+  keszthely: 'hungary',
   vienna: 'austria',
   // london: 'uk',
   brighton: 'uk',
