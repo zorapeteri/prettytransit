@@ -1,6 +1,6 @@
 import type { LinesCollection } from '@/types'
 import { groupLinesByType } from './groupLinesByType'
-import { onlyBus } from './onlyBus'
+import { isBusPrimary } from './isBusPrimary'
 
 function getActiveLinesFromUrl(transportTypes: readonly string[], lines: LinesCollection) {
   const split = location.pathname.split('/').filter(Boolean)
@@ -35,7 +35,7 @@ function getActiveLinesFromUrl(transportTypes: readonly string[], lines: LinesCo
     })
     .filter(Boolean)
     .filter((line) => {
-      if (!onlyBus(transportTypes) && line === 'bus') {
+      if (!isBusPrimary(transportTypes) && line === 'bus') {
         // alert is fine because you have to mess with the URL to get here
         alert(
           'There are too many bus lines to be displayed all at once. Please select bus lines individually.'

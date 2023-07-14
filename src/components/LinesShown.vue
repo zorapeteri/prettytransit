@@ -7,7 +7,7 @@ import { ref, watchEffect } from 'vue'
 import Dialog from './Dialog.vue'
 import { cleanupColoredLineTracks, drawColoredLineTracks } from '@/helpers/drawColoredLineTracks'
 import { groupLinesByType } from '@/helpers/groupLinesByType'
-import { onlyBus } from '@/helpers/onlyBus'
+import { isBusPrimary } from '@/helpers/isBusPrimary'
 import { endpoint } from '@/helpers/get'
 const props = defineProps<{
   city: string
@@ -17,7 +17,7 @@ const props = defineProps<{
   pixi: PixiApp
 }>()
 
-const isOnlyBus = onlyBus(props.transportTypes)
+const cityIsBusPrimary = isBusPrimary(props.transportTypes)
 
 const linesGroupedByType = groupLinesByType(Object.keys(props.transportTypes), props.lines)
 
@@ -84,7 +84,7 @@ watchEffect(() => {
 })
 
 const showAllLinesOption = (type: string) => {
-  if (isOnlyBus) return true
+  if (cityIsBusPrimary) return true
   return type !== 'bus'
 }
 
