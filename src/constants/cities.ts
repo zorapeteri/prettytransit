@@ -8,6 +8,8 @@ export default [
   'bratislava',
   'brighton',
   'potsdam',
+  'miskolc',
+  'pecs',
   'gyor',
   'szombathely',
   'sopron',

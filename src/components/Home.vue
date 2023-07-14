@@ -126,6 +126,8 @@ onMounted(async () => {
         &.gyor,
         &.keszthely,
         &.siofok,
+        &.pecs,
+        &.miskolc,
         &.bratislava,
         &.belgrade {
           transform: scale(0.9) translateX(15px) translateY(15px);
