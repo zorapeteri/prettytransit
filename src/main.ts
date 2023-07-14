@@ -3,7 +3,6 @@ import './assets/main.css'
 import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 // @ts-ignore
-import Markdown from 'vue3-markdown-it'
 import RouterViewContainer from './RouterViewContainer.vue'
 
 const Home = () => import('./components/Home.vue')
@@ -20,6 +19,5 @@ const router = createRouter({
 })
 
 const app = createApp(RouterViewContainer)
-app.use(Markdown)
 app.use(router)
 app.mount('#app')

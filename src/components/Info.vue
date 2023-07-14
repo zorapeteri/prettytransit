@@ -2,7 +2,7 @@
 import { onMounted, ref } from 'vue'
 import Dialog from './Dialog.vue'
 // @ts-ignore no types:((
-import Markdown from 'vue3-markdown-it'
+import VueMarkdown from 'vue-markdown-render'
 import { endpoint } from '@/helpers/get'
 
 const props = defineProps<{
@@ -32,7 +32,7 @@ onMounted(() => {
     <img src="/info.svg" />
   </button>
   <Dialog :open="dialogOpen" @onClose="onDialogClose">
-    <Markdown :source="markdown" />
+    <vue-markdown :source="markdown" />
   </Dialog>
 </template>
 
