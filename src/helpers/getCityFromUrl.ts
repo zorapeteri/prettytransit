@@ -1,5 +1,6 @@
 import cities from '@/constants/cities'
 import { cityNames } from '@/constants/cityNames'
+import { setMetaForCity } from './setMetaForCity'
 
 export function getCityFromUrl(): string {
   const city = (location.pathname.split('/').filter(Boolean)[0] || '').toLowerCase()
@@ -9,6 +10,6 @@ export function getCityFromUrl(): string {
     location.assign('/')
     return ''
   }
-  document.title = `prettytransit @ ${(cityNames as any)[city].toLowerCase()}`
+  setMetaForCity(city)
   return city
 }
