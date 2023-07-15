@@ -27,7 +27,7 @@ onMounted(async () => {
       <h1>prettytransit</h1>
     </header>
     <main>
-      <a v-for="city in cities" :key="city" button :href="'/' + city">
+      <a v-for="city in cities" :key="city" button :href="'/' + city" :title="cityNames[city]">
         <div>
           <strong>{{ cityNames[city] }}</strong
           ><img :src="`/emoji/countries/${cityCountries[city]}.png`" :alt="cityCountries[city]" />

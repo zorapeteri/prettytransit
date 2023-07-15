@@ -1,5 +1,4 @@
 import cities from '@/constants/cities'
-import { cityNames } from '@/constants/cityNames'
 import { setMetaForCity } from './setMetaForCity'
 
 export function getCityFromUrl(): string {
