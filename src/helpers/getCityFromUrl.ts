@@ -9,6 +9,6 @@ export function getCityFromUrl(): string {
     location.assign('/')
     return ''
   }
-  document.title += ` @ ${(cityNames as any)[city].toLowerCase()}`
+  document.title = `prettytransit @ ${(cityNames as any)[city].toLowerCase()}`
   return city
 }
