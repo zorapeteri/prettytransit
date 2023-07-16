@@ -2,7 +2,6 @@
 import getFormattedSpeed from '@/helpers/getFormattedSpeed'
 import { daysOfTheWeek } from '@/types'
 import { format, getDay } from 'date-fns'
-import { ref } from 'vue'
 const formatTime = (time: number) => format(new Date(time), 'HH:mm:ss')
 defineProps<{
   currentTime: number
