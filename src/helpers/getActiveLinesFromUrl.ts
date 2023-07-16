@@ -3,15 +3,15 @@ import { groupLinesByType } from './groupLinesByType'
 import { isBusPrimary } from './isBusPrimary'
 
 function getActiveLinesFromUrl(transportTypes: readonly string[], lines: LinesCollection) {
-  const split = location.pathname.split('/').filter(Boolean)
-  if (split.length < 2) {
+  const pathParts = location.pathname.split('/').filter(Boolean)
+  if (pathParts.length < 2) {
     return {
       activeLinesFromUrl: [transportTypes[0]],
       usedTypes: [transportTypes[0]],
       unusedTypes: transportTypes.filter((type) => type !== transportTypes[0])
     }
   }
-  const linesFromUrl = split[split.length - 1].split(',')
+  const linesFromUrl = pathParts[pathParts.length - 1].split(',')
   const lineNames = Object.keys(lines)
   const linesGroupedByType = groupLinesByType(transportTypes, lines)
   let validLines = linesFromUrl
@@ -44,6 +44,7 @@ function getActiveLinesFromUrl(transportTypes: readonly string[], lines: LinesCo
       }
       return true
     }) as string[]
+
   if (validLines.length < 1) {
     return {
       activeLinesFromUrl: [transportTypes[0]],
@@ -52,14 +53,14 @@ function getActiveLinesFromUrl(transportTypes: readonly string[], lines: LinesCo
     }
   }
 
-  Object.entries(linesGroupedByType).forEach(([type, _lines]) => {
-    const _lineNames = Object.keys(_lines)
-    if (
-      _lineNames.length < 10 &&
-      _lineNames.filter((line) => validLines.includes(line)).length == _lineNames.length
-    ) {
+  Object.entries(linesGroupedByType).forEach(([type, linesByType]) => {
+    const lineNamesForType = Object.keys(linesByType)
+    if (lineNamesForType.every((line) => validLines.includes(line))) {
       // validLines contains all lines for type, we can just say 'type'
-      validLines = [type, ...validLines.filter((line) => !_lineNames.includes(line))]
+      const validLinesOfDifferentTypes = validLines.filter(
+        (line) => !lineNamesForType.includes(line)
+      )
+      validLines = [type, ...validLinesOfDifferentTypes]
     }
   })
 
