@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { type VNodeRef, ref } from 'vue'
-import citySvgPaths from '@/constants/citySvgPaths'
 
-defineProps<{ city: keyof typeof citySvgPaths }>()
+defineProps<{ city: string; citySvgPaths: Record<string, string> }>()
 
 const path = ref<VNodeRef | null>(null)
 </script>

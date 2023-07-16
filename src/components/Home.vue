@@ -6,17 +6,16 @@ import { cityNames } from '@/constants/cityNames'
 import get, { endpoint } from '@/helpers/get'
 import { cityCountries } from '@/constants/cityCountries'
 
-const transportTypes = ref<Record<string, string[]> | null>(null)
+const transportTypes = ref<Record<string, string[]> | null>({})
+const citySvgPaths = ref<any>({})
 
 onMounted(async () => {
-  transportTypes.value = (
-    await Promise.all(cities.map((city) => get(`${city}/transportTypes`)))
-  ).reduce((acc, transportTypeSet, index) => {
-    return {
-      ...acc,
-      [cities[index]]: Object.keys(transportTypeSet)
-    }
-  }, {})
+  for (const city of cities) {
+    const svgPathForCity = await (await fetch(`${endpoint}${city}/citySvgPath.txt`)).text()
+    const transportTypesForCity = Object.keys(await get(`${city}/transportTypes`))
+    citySvgPaths.value = { ...citySvgPaths.value, [city]: svgPathForCity }
+    transportTypes.value = { ...transportTypes.value, [city]: transportTypesForCity }
+  }
 })
 </script>
 
@@ -32,7 +31,7 @@ onMounted(async () => {
           <strong>{{ cityNames[city] }}</strong
           ><img :src="`/emoji/countries/${cityCountries[city]}.png`" :alt="cityCountries[city]" />
         </div>
-        <CitySvg :city="city" />
+        <CitySvg :city="city" :citySvgPaths="citySvgPaths" />
         <ul v-if="transportTypes">
           <li v-for="type in transportTypes[city]" :key="type">
             <img :src="`${endpoint}${city}/icons/${type}.png`" :alt="type" />
