@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { LinesCollection, PixiApp, TransportTypes } from '@/types'
-import _ from 'lodash'
+import groupBy from 'lodash.groupby'
 // @ts-ignore
 import colorContrast from 'color-contrast'
 import { ref, watchEffect } from 'vue'
@@ -37,7 +37,7 @@ const getActiveLinesDisplay = (_activeLines: string[]) => {
     }
   }
 
-  return _.groupBy(
+  return groupBy(
     _activeLines.map((line) => {
       return {
         name: line,

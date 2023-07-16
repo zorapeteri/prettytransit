@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, defineAsyncComponent } from 'vue'
 import Dialog from './Dialog.vue'
 // @ts-ignore no types:((
-import VueMarkdown from 'vue-markdown-render'
 import { endpoint } from '@/helpers/get'
+
+const VueMarkdown = defineAsyncComponent(() => import('vue-markdown-render'))
 
 const props = defineProps<{
   city: string
@@ -32,7 +33,7 @@ onMounted(() => {
     <img src="/info.svg" />
   </button>
   <Dialog :open="dialogOpen" @onClose="onDialogClose">
-    <vue-markdown :source="markdown" />
+    <vue-markdown v-if="dialogOpen" :source="markdown" />
   </Dialog>
 </template>
 

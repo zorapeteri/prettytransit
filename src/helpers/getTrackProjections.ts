@@ -2,7 +2,7 @@ import type { Track } from '@/types'
 import getProjection from './getProjection'
 import { geoProject } from 'd3-geo-projection'
 import { distance } from './lineSliceAlong'
-import _ from 'lodash'
+import pick from 'lodash.pick'
 
 export async function getTrackProjections(city: string, tracks: Track[]) {
   const { projection } = await getProjection(city)
@@ -29,7 +29,7 @@ export async function getTrackProjections(city: string, tracks: Track[]) {
     return {
       ...acc,
       [track.id]: track.stops.map((stop) =>
-        _.pick(stop, 'onTrackLocation', 'coordIndex', 'distanceToNextStop')
+        pick(stop, 'onTrackLocation', 'coordIndex', 'distanceToNextStop')
       )
     }
   }, {})
