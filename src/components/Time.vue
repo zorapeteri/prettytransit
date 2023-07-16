@@ -39,6 +39,8 @@ const emits = defineEmits<{
 </template>
 
 <style scoped lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@400;700&display=swap');
+
 .timecontainer {
   display: flex;
   flex-direction: column;
