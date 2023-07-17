@@ -116,7 +116,8 @@ onMounted(async () => {
         &.szombathely,
         &.brighton,
         &.london,
-        &.dublin {
+        &.dublin,
+        &.prague {
           transform: scale(0.9) translateX(15px);
         }
 
