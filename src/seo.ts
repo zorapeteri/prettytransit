@@ -39,10 +39,6 @@ const padRedirectPath = (path: string) => path.padEnd(maxLength + 18, ' ')
 const redirectRecords = [[padPath('/*'), padRedirectPath('/index.html')]]
 
 async function generateIndexHTMLs() {
-  // if (!fs.existsSync('dist/cities')) {
-  //   fs.mkdirSync('dist/cities')
-  // }
-
   for (const city of cities) {
     const cityName = cityNames[city]
     const title = `prettytransit @ ${cityName.toLowerCase()}`
