@@ -39,9 +39,9 @@ const padRedirectPath = (path: string) => path.padEnd(maxLength + 18, ' ')
 const redirectRecords = [[padPath('/*'), padRedirectPath('/index.html')]]
 
 async function generateIndexHTMLs() {
-  if (!fs.existsSync('dist/cities')) {
-    fs.mkdirSync('dist/cities')
-  }
+  // if (!fs.existsSync('dist/cities')) {
+  //   fs.mkdirSync('dist/cities')
+  // }
 
   for (const city of cities) {
     const cityName = cityNames[city]
@@ -52,8 +52,8 @@ async function generateIndexHTMLs() {
     const description = `Timelapse visualization of ${transportTypesReadableList} lines in ${cityName}`
     const seoTagsForCity = makeSeoTags(city, title, description)
     const htmlForCity = htmlContent.replace(seoContent, seoTagsForCity)
-    fs.writeFileSync(`dist/cities/${city}.html`, htmlForCity, 'utf8')
-    redirectRecords.push([padPath(`/${city}/*`), padRedirectPath(`/cities/${city}.html`)])
+    fs.writeFileSync(`dist/${city}.html`, htmlForCity, 'utf8')
+    redirectRecords.push([padPath(`/${city}/*`), padRedirectPath(`/${city}.html`)])
   }
 }
 
