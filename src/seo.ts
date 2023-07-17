@@ -20,7 +20,7 @@ function makeSeoTags(city: string, title: string, description: string) {
       property="og:description"
       content="${description}"
     />
-    <meta property="og:image" content="https://prettytransit.com/screenshots/main.png" />
+    <meta property="og:image" content="https://prettytransit.com/screenshots/${city}.png" />
     `
 }
 
