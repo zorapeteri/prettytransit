@@ -1,9 +1,9 @@
 export default [
   'berlin',
-  // 'london',
   'budapest',
   'vienna',
   'belgrade',
+  'prague',
   'dublin',
   'bratislava',
   'brighton',

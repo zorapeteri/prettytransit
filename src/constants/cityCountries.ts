@@ -14,9 +14,9 @@ export const cityCountries: Record<(typeof cities)[number], (typeof countries)[n
   pecs: 'hungary',
   miskolc: 'hungary',
   vienna: 'austria',
-  // london: 'uk',
   brighton: 'uk',
   dublin: 'ireland',
   bratislava: 'slovakia',
-  belgrade: 'serbia'
+  belgrade: 'serbia',
+  prague: 'czechia'
 }

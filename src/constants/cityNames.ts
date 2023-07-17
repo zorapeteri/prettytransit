@@ -13,9 +13,9 @@ export const cityNames: Record<(typeof cities)[number], string> = {
   pecs: 'Pécs',
   miskolc: 'Miskolc',
   vienna: 'Vienna',
-  // london: 'London',
   brighton: 'Brighton and Hove',
   dublin: 'Dublin',
   bratislava: 'Bratislava',
-  belgrade: 'Belgrade'
+  belgrade: 'Belgrade',
+  prague: 'Prague'
 }

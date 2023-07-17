@@ -1,1 +1,11 @@
-export default ['germany', 'uk', 'austria', 'hungary', 'ireland', 'slovakia', 'serbia'] as const
+export default [
+  'austria',
+  'germany',
+  'uk',
+  'austria',
+  'hungary',
+  'ireland',
+  'slovakia',
+  'serbia',
+  'czechia'
+] as const
