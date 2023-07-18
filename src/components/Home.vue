@@ -129,7 +129,9 @@ onMounted(async () => {
         &.pecs,
         &.miskolc,
         &.bratislava,
-        &.belgrade {
+        &.belgrade,
+        &.debrecen,
+        &.szeged {
           transform: scale(0.9) translateX(15px) translateY(15px);
         }
 
