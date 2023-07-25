@@ -71,6 +71,14 @@ function addLinksToIndex() {
   fs.writeFileSync('dist/index.html', indexHtmlContent.replace('<!-- links -->', links), 'utf8')
 }
 
+function createSitemap() {
+  const sitemapContent = ['', ...cities]
+    .map((path) => `https://prettytransit.com/${path}`)
+    .join('\n')
+  fs.writeFileSync('dist/sitemap.txt', sitemapContent, 'utf8')
+}
+
+createSitemap()
 addLinksToIndex()
 generateIndexHTMLs().then(() => {
   fs.writeFileSync(
