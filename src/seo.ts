@@ -24,11 +24,20 @@ function makeSeoTags(city: string, title: string, description: string) {
     `
 }
 
+function isAllUppercase(str: string) {
+  return str.split('').every((x) => x === x.toUpperCase())
+}
+
+function toLowerCase(str: string) {
+  if (isAllUppercase(str)) return str
+  return str.toLowerCase()
+}
+
 async function getTransportTypes(city: string) {
   return new Promise((resolve) => {
     fetch(`https://zorapeteri.github.io/prettytransit-gtfs-parser/${city}/transportTypes.json`)
       .then((res) => res.json())
-      .then((res) => resolve(Object.values(res).map((x) => (x as any).name.toLowerCase())))
+      .then((res) => resolve(Object.values(res).map((x) => toLowerCase((x as any).name))))
   })
 }
 
@@ -41,7 +50,7 @@ const redirectRecords = [[padPath('/*'), padRedirectPath('/index.html')]]
 async function generateIndexHTMLs() {
   for (const city of cities) {
     const cityName = cityNames[city]
-    const title = `prettytransit @ ${cityName.toLowerCase()}`
+    const title = `${cityName} - prettytransit`
     const transportTypes: any = await getTransportTypes(city)
     const transportTypesReadableList =
       transportTypes.slice(0, -1).join(', ') + ' and ' + transportTypes.at(-1)
@@ -53,6 +62,16 @@ async function generateIndexHTMLs() {
   }
 }
 
+function addLinksToIndex() {
+  const links =
+    '<div class="seo-links">\n' +
+    cities.map((city) => `      <a href="/${city}">${cityNames[city]}></a>`).join('\n') +
+    '\n    </div>'
+  const indexHtmlContent = fs.readFileSync('dist/index.html', 'utf8')
+  fs.writeFileSync('dist/index.html', indexHtmlContent.replace('<!-- links -->', links), 'utf8')
+}
+
+addLinksToIndex()
 generateIndexHTMLs().then(() => {
   fs.writeFileSync(
     'dist/_redirects',

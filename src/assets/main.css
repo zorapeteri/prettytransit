@@ -18,6 +18,10 @@ body {
     Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+.seo-links {
+  display: none;
+}
+
 button,
 a[button] {
   background-color: #ffffff;
