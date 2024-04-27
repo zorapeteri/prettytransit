@@ -40,7 +40,7 @@ onMounted(async () => {
       </a>
     </main>
     <footer>
-      <span>made with ♡ by <a href="https://zora.rocks" target="_blank">zora</a></span
+      <span>made with ♡ by <a href="https://zora.pt" target="_blank">zora</a></span
       ><span> | </span
       ><a href="https://github.com/zorapeteri/prettytransit" target="_blank">github</a>
     </footer>
