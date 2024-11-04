@@ -14,13 +14,13 @@ function makeSeoTags(city: string, title: string, description: string) {
       content="${description}"
     />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://prettytransit.com/${city}" />
+    <meta property="og:url" content="https://prettytransit.zora.pt/${city}" />
     <meta property="og:title" content="${title}" />
     <meta
       property="og:description"
       content="${description}"
     />
-    <meta property="og:image" content="https://prettytransit.com/screenshots/${city}.png" />
+    <meta property="og:image" content="https://prettytransit.zora.pt/screenshots/${city}.png" />
     `
 }
 
@@ -73,7 +73,7 @@ function addLinksToIndex() {
 
 function createSitemap() {
   const sitemapContent = ['', ...cities]
-    .map((path) => `https://prettytransit.com/${path}`)
+    .map((path) => `https://prettytransit.zora.pt/${path}`)
     .join('\n')
   fs.writeFileSync('dist/sitemap.txt', sitemapContent, 'utf8')
 }

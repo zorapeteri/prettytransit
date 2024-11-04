@@ -3,7 +3,7 @@ import { cityNames } from '@/constants/cityNames'
 export function setMetaForCity(city: string) {
   document
     .querySelector('meta[property="og:url"]')
-    ?.setAttribute('content', `https://prettytransit.com/${city}`)
+    ?.setAttribute('content', `https://prettytransit.zora.pt/${city}`)
 
   const cityName = (cityNames as any)[city]
 

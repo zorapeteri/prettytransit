@@ -1,4 +1,4 @@
-# <img height="40px" src="https://prettytransit.com/icon.png"> prettytransit
+# <img height="40px" src="https://prettytransit.zora.pt/icon.png"> prettytransit
 
 A timelapse public transit visualization app built with Pixi and Vue.
 
@@ -28,7 +28,7 @@ For the movement of vehicles, [PIXI.Ticker](https://pixijs.download/dev/docs/PIX
 
 At every single stop, irregardless of vehicle type, a 30 second [dwell time](<https://en.wikipedia.org/wiki/Dwell_time_(transportation)>) is assumed. I timed this on multiple types of Berlin transit, at different times of day and it seems a good average. This causes the flow of vehicles to not be continous, but rather realistic.
 
-_**Fun fact**: Datasets that include bus and tram lines that have very frequent stops tend to (understandably) make large generalizations for the travel times between stops, which can make it look like the movement of vehicles is borderline coreographed. If you go to [berlin/tram](https://prettytransit.com/berlin/tram) and put the speed to 120x and start playing [Pump Up The Jam](https://open.spotify.com/track/21qnJAMtzC6S5SESuqQLEK?si=31bc47663e1e41b2) at the right time, you can look at the trams vibing._
+_**Fun fact**: Datasets that include bus and tram lines that have very frequent stops tend to (understandably) make large generalizations for the travel times between stops, which can make it look like the movement of vehicles is borderline coreographed. If you go to [berlin/tram](https://prettytransit.zora.pt/berlin/tram) and put the speed to 120x and start playing [Pump Up The Jam](https://open.spotify.com/track/21qnJAMtzC6S5SESuqQLEK?si=31bc47663e1e41b2) at the right time, you can look at the trams vibing._
 
 ### credits and attributions
 
